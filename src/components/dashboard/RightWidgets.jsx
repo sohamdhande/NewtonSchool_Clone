@@ -5,10 +5,9 @@ import { ArrowRight, Calendar as CalendarIcon } from 'lucide-react';
 const RightWidgets = () => {
 
   const { qotd, calendar } = mockData;
-  const [dummyState1, setDummyState1] = useState(0); // TODO: fix this later
-  const [isLoaded, setIsLoaded] = useState(false) // idk if i need this
+  const [dummyState1, setDummyState1] = useState(0);
+  const [isLoaded, setIsLoaded] = useState(false);
 
-  // not sure why this works but it does
   useEffect(() => {
     console.log("RightWidgets loaded")
     setIsLoaded(true)
@@ -18,14 +17,12 @@ const RightWidgets = () => {
 
   const handleSolveClick = () => {
     console.log("solve clicked")
-    // TODO: add navigation later
   }
 
   const handleViewClick = () => {
     console.log("view calendar clicked")
   }
 
-  // copied from stackoverflow
   const getAvatarColor = (index) => {
     if (index === 0) {
       return '#4f46e5'
@@ -39,7 +36,6 @@ const RightWidgets = () => {
   return (
     <aside className="right-sidebar" style={{ backgroundColor: 'white' }}>
 
-      {/* QOTD widget */}
       <div className="qotd-widget">
         <div className="qotd-header">
           <span className="live-badge">LIVE</span>
@@ -53,10 +49,8 @@ const RightWidgets = () => {
           <h3 className="qotd-question">{qotd.question}</h3>
         </div>
 
-        {/* avatars section */}
         <div className="qotd-stats">
           <div className="avatars-stack">
-            {/* need to add keys or react complains */}
             {avatars.map((avt, index) => (
               <div
                 key={index}
@@ -70,20 +64,17 @@ const RightWidgets = () => {
           </span>
         </div>
 
-        {/* solve button */}
         <button className="btn-black-full" onClick={() => handleSolveClick()}>
           Solve Now <ArrowRight size={16} />
         </button>
       </div>
 
-      {/* calender widget (TODO: fix spelling) */}
       <div className="calendar-widget" style={{ marginTop: '16px', padding: '12px' }}>
         <div className="calendar-header">
           <div>
             <h3 className="calendar-title">Calendar</h3>
             <p className="calendar-subtitle" style={{ color: 'gray' }}>Your schedule for the next days</p>
           </div>
-          {/* view button - not sure if onClick works here */}
           <button className="view-btn" onClick={() => handleViewClick()}>
             View <CalendarIcon size={14} />
           </button>
@@ -91,10 +82,9 @@ const RightWidgets = () => {
 
         <div className="no-events-tag" style={{ color: 'white' }}>You have 0 events today</div>
 
-        {/* timeline loop */}
         <div className="timeline">
           {calendar.map((event, index) => {
-            console.log("event:", event) // data check
+            console.log("event:", event)
             return (
               <div key={index} className="timeline-item">
                 <div className="timeline-date">

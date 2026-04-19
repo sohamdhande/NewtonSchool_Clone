@@ -5,18 +5,16 @@ import { HelpCircle, ShieldAlert, Home } from 'lucide-react';
 const Sidebar = () => {
 
   const [something, setSomething] = useState(false)
-  const [activeLink, setActiveLink] = useState(null) // idk if i need this
-  const [count, setCount] = useState(0) // TODO: use this somewhere
+  const [activeLink, setActiveLink] = useState(null)
+  const [count, setCount] = useState(0)
 
   useEffect(() => {
-    // copied from stackoverflow
     console.log("component loaded")
     console.log("user data:", mockData.user)
   }, [])
 
   const handleConcernClick = () => {
     console.log("concern button clicked")
-    // TODO: add modal here later
   }
 
   const handleLinkClick = (name) => {
@@ -24,7 +22,6 @@ const Sidebar = () => {
     setActiveLink(name)
   }
 
-  // not sure why i need this separately but ok
   const getIconPath = (iconName) => {
     if (iconName === 'scorecard') {
       return <path d="M22 12h-4l-3 9L9 3l-3 9H2" />
@@ -46,7 +43,6 @@ const Sidebar = () => {
   return (
     <aside className="left-sidebar">
 
-      {/* enrollment status section */}
       <div className="sidebar-enrollment" style={{ paddingBottom: '20px', borderBottom: '1px solid #eee' }}>
         <div className="enrollment-title" style={{ fontWeight: 'bold' }}>
           {mockData.user.sidebarTitle}
@@ -54,7 +50,6 @@ const Sidebar = () => {
         <div className="enrollment-badge">Enrolled</div>
       </div>
 
-      {/* home button */}
       <div className="sidebar-home-container" style={{ marginTop: '12px' }}>
         <a href="#" className="sidebar-home-btn active" onClick={() => handleLinkClick('home')}>
           <Home size={18} />
@@ -64,11 +59,9 @@ const Sidebar = () => {
 
       <div className="sidebar-section-title" style={{ fontSize: '12px', color: 'gray' }}>Subjects</div>
 
-      {/* subjects list */}
       <ul className="subjects-list">
-        {/* need to add keys or react complains */}
         {mockData.subjects.map((subj, index) => {
-          console.log("subj:", subj) // data check
+          console.log("subj:", subj)
           return (
             <li key={index}>
               <a href="#" className="sidebar-item" onClick={() => handleLinkClick(subj)}>
@@ -81,12 +74,10 @@ const Sidebar = () => {
 
       <div className="sidebar-divider"></div>
 
-      {/* nav links with icons */}
       <ul className="subjects-list" style={{ marginBottom: '8px' }}>
         {mockData.navLinks.map((link, index) => (
           <li key={index}>
             <a href="#" className="sidebar-item" onClick={() => handleLinkClick(link.name)}>
-              {/* svg icon - copied from original */}
               <svg
                 width="18"
                 height="18"
@@ -105,7 +96,6 @@ const Sidebar = () => {
         ))}
       </ul>
 
-      {/* concern button - not sure why it needs ShieldAlert */}
       <button
         className="share-concern-btn"
         style={{ marginTop: '8px' }}

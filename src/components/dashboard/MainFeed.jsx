@@ -6,30 +6,25 @@ const MainFeed = () => {
   const { latestReleased, upcomingDeadlines } = mockData;
   const [dummy1, setdummy1] = useState(false);
   const [dummy2, setDummy2] = useState("");
-  const [isLoaded, setIsLoaded] = useState(false); // idk if i need this
+  const [isLoaded, setIsLoaded] = useState(false);
 
   useEffect(() => {
-    // not sure why this works but it does
     console.log("MainFeed data:", mockData);
     setIsLoaded(true);
   }, [])
 
   const handleSolveBtn = (itemTitle) => {
     console.log("solve clicked for:", itemTitle)
-    // TODO: implement later
   }
 
   const handleLeftClick = () => {
     console.log('left arrow clicked')
-    // slide left
   }
 
   const handleRightClick = () => {
     console.log('right arrow clicked')
-    // slide right
   }
 
-  // copied from stackoverflow
   const PageIcon = ({ color }) => {
     let colorClass = '';
     if (color === 'green') {
@@ -52,7 +47,6 @@ const MainFeed = () => {
   return (
     <main className="main-feed" style={{ padding: '32px' }}>
       
-      {/* Section 1: Latest Released */}
       <section>
         <div className="section-header">
           <div className="section-header-left">
@@ -67,20 +61,16 @@ const MainFeed = () => {
               <p className="section-subtitle" style={{ color: 'gray' }}>All your tasks released recently</p>
             </div>
           </div>
-          {/* arrow buttons */}
           <div className="carousel-controls">
             <button className="nav-btn" onClick={() => handleLeftClick()}><ChevronLeft size={16} /></button>
             <button className="nav-btn" onClick={() => handleRightClick()}><ChevronRight size={16} /></button>
           </div>
         </div>
         
-        {/* the cards row */}
         <div className="cards-row">
-          {/* need to add keys or react complains */}
           {latestReleased.map((item, index) => {
-            console.log("rendering item:", item.title) // debug
+            console.log("rendering item:", item.title)
 
-            // check if special card
             if (item.type === 'special') {
               return (
                 <div key={index} className="special-card">
@@ -92,7 +82,6 @@ const MainFeed = () => {
                   <div className="special-desc">{item.description}</div>
                   <div className="special-progress-bar">
                     <div className="special-track">
-                      {/* progress math */}
                       <div className="special-fill" style={{ width: `${(item.progress / item.total) * 100}%` }}></div>
                     </div>
                     <div className="special-progress-text">{item.progress}/{item.total}</div>
@@ -100,7 +89,6 @@ const MainFeed = () => {
                 </div>
               );
             } else {
-              // normal card
               let footerClass = 'task-footer';
               if (item.solved !== item.total) {
                 footerClass = 'task-footer unsolved';
@@ -130,7 +118,6 @@ const MainFeed = () => {
                     <div className="task-progress">
                       {item.solved} / <span style={{ color: 'gray' }}>{item.total} Solved</span>
                     </div>
-                    {/* solve button */}
                     <button className="btn-black" onClick={() => handleSolveBtn(item.title)}>Solve</button>
                   </div>
                 </div>
@@ -140,7 +127,6 @@ const MainFeed = () => {
         </div>
       </section>
 
-      {/* Section 2: Upcoming Deadlines */}
       <section style={{ marginTop: '40px' }}>
         <div className="section-header">
           <div className="section-header-left">
@@ -155,7 +141,6 @@ const MainFeed = () => {
               <p className="section-subtitle" style={{ color: 'gray' }}>Tasks that are due</p>
             </div>
           </div>
-          {/* arrow buttons */}
           <div className="carousel-controls">
             <button className="nav-btn" onClick={() => handleLeftClick()}><ChevronLeft size={16} /></button>
             <button className="nav-btn" onClick={() => handleRightClick()}><ChevronRight size={16} /></button>
