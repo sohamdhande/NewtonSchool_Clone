@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { mockData } from '../../data/mockData';
-import { ChevronLeft, ChevronRight } from 'lucide-react';
+import { NSIcon } from '@newtonschool/grauity';
 
 const MainFeed = () => {
   const { latestReleased, upcomingDeadlines } = mockData;
@@ -62,8 +62,8 @@ const MainFeed = () => {
             </div>
           </div>
           <div className="carousel-controls">
-            <button className="nav-btn" onClick={() => handleLeftClick()}><ChevronLeft size={16} /></button>
-            <button className="nav-btn" onClick={() => handleRightClick()}><ChevronRight size={16} /></button>
+            <button className="nav-btn" onClick={() => handleLeftClick()}><NSIcon name="chevron-left" size="16" /></button>
+            <button className="nav-btn" onClick={() => handleRightClick()}><NSIcon name="chevron-right" size="16" /></button>
           </div>
         </div>
         
@@ -142,8 +142,8 @@ const MainFeed = () => {
             </div>
           </div>
           <div className="carousel-controls">
-            <button className="nav-btn" onClick={() => handleLeftClick()}><ChevronLeft size={16} /></button>
-            <button className="nav-btn" onClick={() => handleRightClick()}><ChevronRight size={16} /></button>
+            <button className="nav-btn" onClick={() => handleLeftClick()}><NSIcon name="chevron-left" size="16" /></button>
+            <button className="nav-btn" onClick={() => handleRightClick()}><NSIcon name="chevron-right" size="16" /></button>
           </div>
         </div>
 

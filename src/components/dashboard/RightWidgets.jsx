@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { mockData } from '../../data/mockData';
-import { ArrowRight, Calendar as CalendarIcon } from 'lucide-react';
+import { NSIcon } from '@newtonschool/grauity';
 
 const RightWidgets = () => {
 
@@ -65,7 +65,7 @@ const RightWidgets = () => {
         </div>
 
         <button className="btn-black-full" onClick={() => handleSolveClick()}>
-          Solve Now <ArrowRight size={16} />
+          Solve Now <NSIcon name="arrow-right" size="16" />
         </button>
       </div>
 
@@ -76,7 +76,7 @@ const RightWidgets = () => {
             <p className="calendar-subtitle" style={{ color: 'gray' }}>Your schedule for the next days</p>
           </div>
           <button className="view-btn" onClick={() => handleViewClick()}>
-            View <CalendarIcon size={14} />
+            View <NSIcon name="calender" size="14" />
           </button>
         </div>
 
