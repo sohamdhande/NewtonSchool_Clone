@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { mockData } from '../../data/mockData';
-import { HelpCircle, ShieldAlert, Home } from 'lucide-react';
+import { NSIcon } from '@newtonschool/grauity';
 
 const Sidebar = () => {
 
@@ -52,7 +52,7 @@ const Sidebar = () => {
 
       <div className="sidebar-home-container" style={{ marginTop: '12px' }}>
         <a href="#" className="sidebar-home-btn active" onClick={() => handleLinkClick('home')}>
-          <Home size={18} />
+          <NSIcon name="home" size="18" />
           Home
         </a>
       </div>
@@ -101,12 +101,12 @@ const Sidebar = () => {
         style={{ marginTop: '8px' }}
         onClick={() => handleConcernClick()}
       >
-        <ShieldAlert size={18} />
+        <NSIcon name="exclamation-triangle" size="18" />
         Share a Concern
       </button>
 
       <a href="#" className="sidebar-item" style={{ marginTop: '4px' }}>
-        <HelpCircle size={18} />
+        <NSIcon name="info-circle" size="18" />
         Help & Support
       </a>
 

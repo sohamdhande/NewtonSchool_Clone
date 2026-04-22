@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import Header from '../components/dashboard/Header';
+import Navbar from '../components/Navbar';
 import Sidebar from '../components/dashboard/Sidebar';
 import MainFeed from '../components/dashboard/MainFeed';
 import RightWidgets from '../components/dashboard/RightWidgets';
@@ -14,7 +14,7 @@ const Dashboard = () => {
 
   return (
     <div className="dashboard-container">
-      <Header />
+      <Navbar variant="dashboard" />
       <Sidebar />
       <MainFeed />
       <RightWidgets />

@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { ChevronLeft, ChevronRight } from 'lucide-react';
+import { NSIcon } from '@newtonschool/grauity';
 
 function HostPage({ bannerBg, bannerBg2, courseImage }) {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -29,7 +29,7 @@ function HostPage({ bannerBg, bannerBg2, courseImage }) {
     <main className="main-content">
       <div className="banner-section">
         <button className="nav-arrow" onClick={prevSlide}>
-          <ChevronLeft size={20} />
+          <NSIcon name="chevron-left" size="20" />
         </button>
         <div className="banner-carousel-window">
           <div
@@ -40,14 +40,14 @@ function HostPage({ bannerBg, bannerBg2, courseImage }) {
               <div key={index} className="banner-slide" style={{ backgroundImage: `url(${slide.bg})` }}>
                 <div className="banner-text-box">
                   <h1 className="banner-title">{slide.text}</h1>
-                  <a href={slide.link} className="practice-btn">Practice Now <ChevronRight size={16} /></a>
+                  <a href={slide.link} className="practice-btn">Practice Now <NSIcon name="chevron-right" size="16" /></a>
                 </div>
               </div>
             ))}
           </div>
         </div>
         <button className="nav-arrow" onClick={nextSlide}>
-          <ChevronRight size={20} />
+          <NSIcon name="chevron-right" size="20" />
         </button>
       </div>
       <div className="dots">
@@ -64,7 +64,7 @@ function HostPage({ bannerBg, bannerBg2, courseImage }) {
       <div className="courses-section">
         <div className="section-header">
           <h2>Your Courses</h2>
-          <a href="#" className="show-all">Show All <ChevronRight size={14} /></a>
+          <a href="#" className="show-all">Show All <NSIcon name="chevron-right" size="14" /></a>
         </div>
 
         <div className="courses-grid">
@@ -79,7 +79,7 @@ function HostPage({ bannerBg, bannerBg2, courseImage }) {
             <div className="card-content">
               <h3 className="course-title">Newton School of Technology'25 (CS+AIML) (ADYPU)</h3>
               <span className="badge">Enrolled</span>
-              <button className="continue-btn">Continue Learning <ChevronRight size={16} /></button>
+              <button className="continue-btn">Continue Learning <NSIcon name="chevron-right" size="16" /></button>
             </div>
           </div>
         </div>

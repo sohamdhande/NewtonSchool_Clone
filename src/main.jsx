@@ -1,3 +1,4 @@
+import '@newtonschool/grauity/dist/css/index.scss'
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import Dashboard from './pages/Dashboard'
