@@ -1,0 +1,405 @@
+.lb-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 32px 24px;
+  background-color: #ffffff;
+  background-image: 
+    linear-gradient(rgba(0,0,0,0.04) 1px, transparent 1px), 
+    linear-gradient(90deg, rgba(0,0,0,0.04) 1px, transparent 1px),
+    linear-gradient(to bottom, #d9caff 0%, #f0e9ff 25%, #ffffff 60%);
+  background-size: 30px 30px, 30px 30px, 100% 100%;
+  min-height: 100vh;
+  font-family: 'Inter', sans-serif;
+
+  .lb-xp-coin {
+    width: 22px;
+    height: 24px;
+    background-color: #d18f3a;
+    clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    flex-shrink: 0;
+
+    &::after {
+      content: "";
+      position: absolute;
+      width: 18px;
+      height: 20px;
+      background: linear-gradient(135deg, #f9c264, #eda43e);
+      clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+      z-index: 1;
+    }
+
+    > * {
+      z-index: 2;
+    }
+  }
+
+  .lb-header {
+    width: 100%;
+    max-width: 1100px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 40px;
+
+    .lb-filters {
+      display: flex;
+      background-color: #1a1a1a;
+      padding: 4px;
+      border-radius: 20px;
+      gap: 4px;
+
+      .lb-filter-btn {
+        background-color: transparent;
+        color: #777;
+        border: none;
+        padding: 8px 16px;
+        border-radius: 16px;
+        font-size: 14px;
+        font-weight: 500;
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        cursor: pointer;
+        transition: all 0.2s;
+
+        &.active {
+          background-color: #2c2c2c;
+          color: white;
+        }
+
+        &:hover:not(.active) {
+          color: #aaa;
+        }
+      }
+    }
+
+    .lb-title-section {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-top: -10px;
+
+      .lb-tag-wrapper {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+
+        .lb-tag-line {
+          background-color: #333;
+          height: 1px;
+          width: 40px;
+        }
+
+        .lb-tag {
+          background-color: #1a1a1a;
+          color: white;
+          font-size: 11px;
+          font-weight: 700;
+          padding: 6px 14px;
+          border-radius: 6px;
+          letter-spacing: 1px;
+          margin-bottom: 16px;
+          display: flex;
+          align-items: center;
+          gap: 6px;
+          text-transform: uppercase;
+        }
+      }
+
+      .lb-title {
+        font-size: 42px;
+        font-weight: 700;
+        color: #111;
+        letter-spacing: -0.5px;
+      }
+    }
+
+    .lb-how-it-works {
+      background-color: #1a1a1a;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 20px;
+      font-size: 14px;
+      font-weight: 500;
+      cursor: pointer;
+    }
+  }
+
+  .lb-podium {
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    gap: 60px;
+    margin-bottom: 54px;
+
+    .lb-podium-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+      .lb-avatar-wrap {
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        .lb-avatar {
+          border-radius: 50%;
+          background-color: #111;
+          color: #eed;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          font-size: 26px;
+          font-weight: 600;
+        }
+
+        .lb-rank-badge {
+          position: absolute;
+          bottom: -12px;
+          background-color: #4a4a4a;
+          color: white;
+          width: 32px;
+          height: 24px;
+          border-radius: 12px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          font-size: 13px;
+          font-weight: 700;
+          border: 2px solid white;
+        }
+      }
+
+      &.lb-podium-1 {
+        .lb-avatar {
+          width: 90px;
+          height: 90px;
+          border: 4px solid #d4af37;
+          font-size: 32px;
+        }
+        .lb-rank-badge {
+          background-color: #a67b27;
+        }
+      }
+
+      &.lb-podium-2 {
+        .lb-avatar {
+          width: 72px;
+          height: 72px;
+          border: 4px solid #6c707d;
+        }
+        .lb-rank-badge {
+          background-color: #555862;
+        }
+      }
+
+      &.lb-podium-3 {
+        .lb-avatar {
+          width: 72px;
+          height: 72px;
+          border: 4px solid #a36136;
+        }
+        .lb-rank-badge {
+          background-color: #794422;
+        }
+      }
+
+      .lb-podium-name {
+        margin-top: 20px;
+        font-size: 15px;
+        font-weight: 700;
+        color: #111;
+      }
+
+      .lb-podium-xp {
+        font-size: 15px;
+        font-weight: 700;
+        color: #333;
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        margin-top: 4px;
+      }
+    }
+  }
+
+  .lb-main-card {
+    width: 100%;
+    max-width: 1100px;
+    background-color: #16161a;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+    padding-bottom: 24px;
+
+    .lb-banner {
+      background: linear-gradient(90deg, #b88bff, #d5aeff);
+      padding: 24px 32px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin: 16px;
+      border-radius: 12px;
+
+      .lb-banner-text {
+        h3 {
+          font-size: 18px;
+          font-weight: 700;
+          color: #111;
+          margin-bottom: 6px;
+        }
+
+        p {
+          font-size: 14px;
+          color: #333;
+          font-weight: 500;
+        }
+      }
+
+      .lb-banner-actions {
+        display: flex;
+        gap: 12px;
+
+        .lb-banner-btn {
+          background-color: #16161a;
+          color: white;
+          border: none;
+          padding: 12px 20px;
+          border-radius: 8px;
+          font-size: 14px;
+          font-weight: 600;
+          cursor: pointer;
+          transition: background-color 0.2s;
+
+          &:hover {
+            background-color: #000;
+          }
+        }
+      }
+    }
+
+    .lb-table {
+      width: 100%;
+      border-collapse: collapse;
+
+      .lb-th {
+        color: #999;
+        font-size: 12px;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        text-align: left;
+        padding: 20px 32px;
+        border-bottom: 1px solid #2c2c31;
+
+        &.text-right {
+          text-align: right;
+        }
+        
+        &.lb-rank-col {
+          width: 140px;
+          > div {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+          }
+        }
+        
+        &.lb-change-col {
+          width: 100px;
+          color: #777;
+        }
+      }
+
+      .lb-tr {
+        border-bottom: 1px solid #232328;
+        transition: background-color 0.2s;
+
+        &:hover {
+          background-color: #1e1e24;
+        }
+
+        &.active-user {
+          background-color: #2b2511;
+          border-left: 4px solid #f39c12;
+        }
+
+        .lb-td {
+          padding: 16px 32px;
+          color: #ddd;
+          font-size: 14px;
+          font-weight: 500;
+          vertical-align: middle;
+
+          .lb-rank-pill {
+            width: 52px;
+            height: 30px;
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 14px;
+          }
+
+          .lb-rank-1 { background-color: #8b6b15; color: #fff; }
+          .lb-rank-2 { background-color: #3b4252; color: #fff; }
+          .lb-rank-3 { background-color: #8a4e21; color: #fff; }
+
+          .lb-change-up {
+            color: #2ecc71;
+            display: flex;
+            align-items: center;
+            gap: 2px;
+          }
+
+          .lb-change-down {
+            color: #e74c3c;
+            display: flex;
+            align-items: center;
+            gap: 2px;
+          }
+
+          .lb-name-cell {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+
+            .lb-row-avatar {
+              width: 36px;
+              height: 36px;
+              border-radius: 50%;
+              background-color: #3a3a44;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              font-size: 13px;
+              font-weight: 600;
+              color: white;
+            }
+          }
+
+          .lb-xp-col {
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+          }
+
+          &.lb-time-col {
+            color: #888;
+            font-size: 13px;
+            text-align: right;
+          }
+        }
+      }
+    }
+  }
+}
