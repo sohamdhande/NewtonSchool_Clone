@@ -77,7 +77,16 @@ const Sidebar = () => {
       <ul className="subjects-list" style={{ marginBottom: '8px' }}>
         {mockData.navLinks.map((link, index) => (
           <li key={index}>
-            <a href="#" className="sidebar-item" onClick={() => handleLinkClick(link.name)}>
+            <a 
+              href={link.name === 'Arena' ? '/arena' : '#'} 
+              className="sidebar-item" 
+              onClick={(e) => {
+                if (link.name !== 'Arena') {
+                  e.preventDefault();
+                  handleLinkClick(link.name);
+                }
+              }}
+            >
               <svg
                 width="18"
                 height="18"
