@@ -2,6 +2,7 @@ import React from 'react';
 import "@newtonschool/grauity/dist/css/index.scss";
 import { NSIcon } from '@newtonschool/grauity';
 import './LeaderboardPage.scss';
+import Navbar from '../components/Navbar';
 
 const leaderboardData = [
     { rank: 1, name: "Injora", xp: 8500, change: "+5", submission: "2 mins ago", avatarStr: "IN" },
@@ -30,7 +31,9 @@ export default function LeaderboardPage() {
     const top3 = [leaderboardData[1], leaderboardData[0], leaderboardData[2]];
 
     return (
-        <div className="lb-container">
+        <>
+            <Navbar variant="dashboard" />
+            <div className="lb-container">
             <div className="lb-header">
         <div className="lb-filters">
             <button className="lb-filter-btn">
@@ -151,5 +154,6 @@ export default function LeaderboardPage() {
                 </table>
             </div>
         </div>
+        </>
     );
 }
