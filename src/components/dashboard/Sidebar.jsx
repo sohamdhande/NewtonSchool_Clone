@@ -78,10 +78,10 @@ const Sidebar = () => {
         {mockData.navLinks.map((link, index) => (
           <li key={index}>
             <a 
-              href={link.name === 'Arena' ? '/arena' : '#'} 
+              href={link.name === 'Arena' ? '/arena' : link.name === 'Leaderboard' ? '/leaderboard' : '#'} 
               className="sidebar-item" 
               onClick={(e) => {
-                if (link.name !== 'Arena') {
+                if (link.name !== 'Arena' && link.name !== 'Leaderboard') {
                   e.preventDefault();
                   handleLinkClick(link.name);
                 }

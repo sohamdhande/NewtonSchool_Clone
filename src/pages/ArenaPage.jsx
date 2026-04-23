@@ -2,6 +2,7 @@ import React from 'react';
 import "@newtonschool/grauity/dist/css/index.scss";
 import { NSIcon } from '@newtonschool/grauity';
 import './ArenaPage.scss';
+import Navbar from '../components/Navbar';
 
 const arenaData = [
   { id: 1, title: 'Right angle triangle', tags: ['Loops', 'Pattern Making', '+1'], difficulty: 'Easy', xp: '10/10', solvedBy: '18262 (84%)', status: 'solved' },
@@ -25,7 +26,9 @@ const RECENT_TOPICS = ['Linked List', 'Sorting Algorithms', 'Merge Sort', 'Divid
 
 export default function ArenaPage() {
     return (
-        <div className="arena-container">
+        <>
+            <Navbar variant="dashboard" />
+            <div className="arena-container">
             <div className="arena-header-banner">
                 <div className="arena-header-content">
                     <h1>Arena</h1>
@@ -150,5 +153,6 @@ export default function ArenaPage() {
                 </div>
             </div>
         </div>
+        </>
     );
 }

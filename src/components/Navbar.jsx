@@ -9,7 +9,7 @@ function Navbar({ variant = 'default' }) {
 
   if (variant === 'dashboard') {
     return (
-      <header className="top-header" style={{ display: 'flex', zIndex: '10' }}>
+      <header className="top-header" style={{ display: 'flex', zIndex: '10', height: '64px', width: '100%', boxSizing: 'border-box' }}>
         <div className="header-left">
           <div className="cohort-dropdown" onClick={() => setIsDropdownOpen(!isDropdownOpen)}>
             <img src={favicon} alt="logo" className="logo" style={{ width: '16px', height: '16px' }} />

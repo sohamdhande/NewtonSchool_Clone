@@ -40,7 +40,6 @@ body {
   font-family: 'Nunito Sans', sans-serif !important;
   background-color: var(--bg-main);
   color: var(--text-primary);
-  overflow: hidden;
 }
 
 /* tried this didnt work */
@@ -51,6 +50,7 @@ body {
   display: grid;
   height: 100vh;
   width: 100vw;
+  overflow: hidden;
   grid-template-columns: 240px 1fr 340px;
   grid-template-rows: 64px 1fr;
   grid-template-areas:
