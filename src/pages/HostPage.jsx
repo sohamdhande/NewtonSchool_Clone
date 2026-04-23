@@ -79,7 +79,7 @@ function HostPage({ bannerBg, bannerBg2, courseImage }) {
             <div className="card-content">
               <h3 className="course-title">Newton School of Technology'25 (CS+AIML) (ADYPU)</h3>
               <span className="badge">Enrolled</span>
-              <button className="continue-btn">Continue Learning <NSIcon name="chevron-right" size="16" /></button>
+              <button className="continue-btn" onClick={() => window.location.href = '/dashboard'}>Continue Learning <NSIcon name="chevron-right" size="16" /></button>
             </div>
           </div>
         </div>

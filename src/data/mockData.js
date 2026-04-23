@@ -1,6 +1,6 @@
 // hardcoded for now will use api later
 export const mockData = {
-  user: { initials: "SD",
+  user: { initials: "NS",
     xp: "17,009",
     cohort: "NSTP'25-CS+AIML",
     sidebarTitle: "S2 P'25-CS+AIML" }, // cramped formatting here

@@ -24,10 +24,10 @@ function Navbar({ variant = 'default' }) {
                   <h3 className="courses-dropdown-title">Your Courses</h3>
                   <p className="courses-dropdown-sub">Find your recently opened courses here</p>
                 </div>
-                <a href="/dashboard" className="show-all-btn">Show All</a>
+                <a href="/" className="show-all-btn">Show All</a>
               </div>
               <div className="courses-dropdown-list">
-                <div className="courses-dropdown-item">
+                <div className="courses-dropdown-item" onClick={() => window.location.href = '/dashboard'}>
                   <div className="courses-dropdown-item-info">
                     <h4>NSTP'25-CS+AIML</h4>
                     <span>Enrolled</span>
@@ -45,9 +45,6 @@ function Navbar({ variant = 'default' }) {
         </div>
 
         <div className="header-right">
-          <div className="icon-gift" onClick={() => console.log('gift clicked')}>
-            <NSIcon name="gift" size="16" />
-          </div>
 
           <div className="xp-pill" style={{ display: 'flex', alignItems: 'center' }}>
             <span style={{ fontSize: '12px' }}>Total XP</span>
@@ -89,11 +86,11 @@ function Navbar({ variant = 'default' }) {
                 <h3 className="courses-dropdown-title">Your Courses</h3>
                 <p className="courses-dropdown-sub">Find your recently opened courses here</p>
               </div>
-              <a href="/dashboard" className="show-all-btn">Show All</a>
+              <a href="/" className="show-all-btn">Show All</a>
             </div>
             <div className="courses-dropdown-list">
-              <div className="courses-dropdown-item">
-                <div className="courses-dropdown-item-info" onClick={() => window.location.href = '/dashboard'}>
+              <div className="courses-dropdown-item" onClick={() => window.location.href = '/dashboard'} style={{ cursor: 'pointer' }}>
+                <div className="courses-dropdown-item-info">
                   <h4>NSTP'25-CS+AIML</h4>
                   <span>Enrolled</span>
                 </div>
