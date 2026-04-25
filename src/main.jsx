@@ -9,11 +9,12 @@ import ArenaPage from './pages/ArenaPage'
 import LeaderboardPage from './pages/LeaderboardPage'
 import CalendarPage from './pages/CalendarPage'
 import TryoutsPage from './pages/TryoutsPage'
+import TimelinePage from './pages/TimelinePage'
 
 const path = window.location.pathname;
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    {path === '/dashboard' ? <Dashboard /> : path === '/arena' ? <ArenaPage /> : path === '/leaderboard' ? <LeaderboardPage /> : path === '/calendar' ? <CalendarPage /> : path === '/tryouts' ? <TryoutsPage /> : <App />}
+    {path === '/dashboard' ? <Dashboard /> : path === '/arena' ? <ArenaPage /> : path === '/leaderboard' ? <LeaderboardPage /> : path === '/calendar' ? <CalendarPage /> : path === '/tryouts' ? <TryoutsPage /> : path === '/timeline' ? <TimelinePage /> : <App />}
   </StrictMode>,
 )
