@@ -3,6 +3,7 @@ import { mockData } from '../../data/mockData';
 import { NSIcon } from '@newtonschool/grauity';
 
 const Sidebar = () => {
+  const path = window.location.pathname;
 
   const [something, setSomething] = useState(false)
   const [activeLink, setActiveLink] = useState(null)
@@ -51,7 +52,7 @@ const Sidebar = () => {
       </div>
 
       <div className="sidebar-home-container" style={{ marginTop: '12px' }}>
-        <a href="#" className="sidebar-home-btn active" onClick={() => handleLinkClick('home')}>
+        <a href="/dashboard" className={`sidebar-home-btn ${path === '/dashboard' || path === '/' ? 'active' : ''}`}>
           <NSIcon name="home" size="18" />
           Home
         </a>
@@ -78,10 +79,10 @@ const Sidebar = () => {
         {mockData.navLinks.map((link, index) => (
           <li key={index}>
             <a 
-              href={link.name === 'Arena' ? '/arena' : link.name === 'Leaderboard' ? '/leaderboard' : '#'} 
-              className="sidebar-item" 
+              href={link.name === 'Arena' ? '/arena' : link.name === 'Leaderboard' ? '/leaderboard' : link.name === 'Calendar' ? '/calendar' : '#'} 
+              className={`sidebar-item ${path === '/' + link.name.toLowerCase() ? 'active' : ''}`} 
               onClick={(e) => {
-                if (link.name !== 'Arena' && link.name !== 'Leaderboard') {
+                if (link.name !== 'Arena' && link.name !== 'Leaderboard' && link.name !== 'Calendar') {
                   e.preventDefault();
                   handleLinkClick(link.name);
                 }
