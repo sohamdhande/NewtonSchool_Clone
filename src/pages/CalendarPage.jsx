@@ -7,34 +7,20 @@ import Sidebar from '../components/dashboard/Sidebar';
 
 
 const CALENDAR_EVENTS = [
-  
   { id: 1, title: 'Lab', day: 1, startHour: 9.5, endHour: 10.83, color: '#2d8a4e' },
   { id: 2, title: 'Linked List Problems', day: 1, startHour: 11, endHour: 12.5, color: '#2563eb' },
   { id: 3, title: 'React API Integration, Re...', day: 1, startHour: 12.5, endHour: 14, color: '#2563eb' },
-  { id: 4, title: 'Buffer lab', day: 1, startHour: 17, endHour: 19, color: '#0d9488' },
-
-  
   { id: 5, title: 'Agentic Error Handling, A...', day: 2, startHour: 9.5, endHour: 11, color: '#2563eb' },
   { id: 6, title: 'Binary Tree, Introduction...', day: 2, startHour: 11, endHour: 12.5, color: '#2563eb' },
   { id: 7, title: 'Unbiased Estimator', day: 2, startHour: 12.5, endHour: 14, color: '#2563eb' },
-  { id: 8, title: 'Independent Lecture', day: 2, startHour: 18.5, endHour: 19.5, color: '#2563eb' },
-
-  
   { id: 9, title: 'Statistical Relationship b...', day: 3, startHour: 9.5, endHour: 10.83, color: '#2563eb' },
   { id: 10, title: 'Binary Tree, Introduction...', day: 3, startHour: 11, endHour: 12.5, color: '#2563eb' },
   { id: 11, title: 'React CSS Styling, React...', day: 3, startHour: 12.5, endHour: 14, color: '#2563eb' },
   { id: 12, title: 'React CSS Styling, React...', day: 3, startHour: 15.5, endHour: 17, color: '#2563eb' },
-
-  
   { id: 13, title: 'Lec 23', day: 4, startHour: 9.5, endHour: 11, color: '#2563eb' },
   { id: 14, title: 'Post Order Traversal', day: 4, startHour: 11, endHour: 12.5, color: '#2563eb' },
   { id: 15, title: 'Lecture_24', day: 4, startHour: 12.5, endHour: 14, color: '#2563eb' },
   { id: 16, title: 'React Router', day: 4, startHour: 15.5, endHour: 17, color: '#2563eb' },
-
-  
-  { id: 17, title: '', day: 1, startHour: 19, endHour: 19.75, color: '#6b7a2e' },
-  
-  { id: 18, title: '', day: 2, startHour: 19, endHour: 19.5, color: '#0d9488' },
 ];
 
 const SUBJECTS = [
@@ -106,6 +92,34 @@ export default function CalendarPage() {
   const isTodayInWeek = weekDays.some(d => d.toDateString() === today.toDateString());
   const todayDayIndex = weekDays.findIndex(d => d.toDateString() === today.toDateString());
 
+  const processedEvents = useMemo(() => {
+    const events = CALENDAR_EVENTS.map(evt => ({ ...evt, colIdx: 0, maxCol: 1 }));
+    for (let day = 0; day < 7; day++) {
+      let dayEvents = events.filter(e => e.day === day).sort((a, b) => a.startHour - b.startHour);
+      let columns = [];
+      for (let evt of dayEvents) {
+        let placed = false;
+        for (let i = 0; i < columns.length; i++) {
+          if (columns[i] <= evt.startHour) {
+            columns[i] = evt.endHour;
+            evt.colIdx = i;
+            placed = true;
+            break;
+          }
+        }
+        if (!placed) {
+          evt.colIdx = columns.length;
+          columns.push(evt.endHour);
+        }
+      }
+      for (let evt of dayEvents) {
+        let overlaps = dayEvents.filter(e => e.startHour < evt.endHour && e.endHour > evt.startHour);
+        evt.maxCol = Math.max(...overlaps.map(e => e.colIdx)) + 1;
+      }
+    }
+    return events;
+  }, []);
+
   return (
     <div className="cal-page-layout">
       <Navbar variant="dashboard" />
@@ -170,7 +184,7 @@ export default function CalendarPage() {
             ))}
 
             
-            {CALENDAR_EVENTS.map((evt) => {
+            {processedEvents.map((evt) => {
               const top = evt.startHour * 54; 
               const height = (evt.endHour - evt.startHour) * 54;
               const colStart = evt.day; 
@@ -181,8 +195,8 @@ export default function CalendarPage() {
                   style={{
                     top: `${top}px`,
                     height: `${height}px`,
-                    left: `calc(60px + ${colStart} * ((100% - 60px) / 7))`,
-                    width: `calc((100% - 60px) / 7 - 4px)`,
+                    left: `calc(60px + ${colStart} * ((100% - 60px) / 7) + (((100% - 60px) / 7) / ${evt.maxCol}) * ${evt.colIdx})`,
+                    width: `calc(((100% - 60px) / 7) / ${evt.maxCol} - 4px)`,
                     backgroundColor: evt.color,
                   }}
                 >
