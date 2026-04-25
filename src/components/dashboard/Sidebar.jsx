@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { mockData } from '../../data/mockData';
 import { NSIcon } from '@newtonschool/grauity';
 
@@ -9,10 +9,24 @@ const Sidebar = () => {
   const [activeLink, setActiveLink] = useState(null)
   const [count, setCount] = useState(0)
 
+  const sidebarRef = useRef(null);
+
   useEffect(() => {
-    console.log("component loaded")
-    console.log("user data:", mockData.user)
-  }, [])
+    const sidebar = sidebarRef.current;
+    if (sidebar) {
+      const saved = sessionStorage.getItem('sidebarScroll');
+      if (saved) sidebar.scrollTop = parseInt(saved, 10);
+    }
+
+    const saveScroll = () => {
+      if (sidebarRef.current) {
+        sessionStorage.setItem('sidebarScroll', sidebarRef.current.scrollTop);
+      }
+    };
+
+    window.addEventListener('beforeunload', saveScroll);
+    return () => window.removeEventListener('beforeunload', saveScroll);
+  }, []);
 
   const handleConcernClick = () => {
     console.log("concern button clicked")
@@ -42,7 +56,7 @@ const Sidebar = () => {
   }
 
   return (
-    <aside className="left-sidebar">
+    <aside className="left-sidebar" ref={sidebarRef}>
 
       <div className="sidebar-enrollment" style={{ paddingBottom: '20px', borderBottom: '1px solid #eee' }}>
         <div className="enrollment-title" style={{ fontWeight: 'bold' }}>
@@ -85,6 +99,8 @@ const Sidebar = () => {
                 if (link.name !== 'Arena' && link.name !== 'Leaderboard' && link.name !== 'Calendar' && link.name !== 'My Timeline' && link.name !== 'Question of the Day' && link.name !== 'Scorecard') {
                   e.preventDefault();
                   handleLinkClick(link.name);
+                } else if (sidebarRef.current) {
+                  sessionStorage.setItem('sidebarScroll', sidebarRef.current.scrollTop);
                 }
               }}
             >
