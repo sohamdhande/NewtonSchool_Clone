@@ -79,10 +79,10 @@ const Sidebar = () => {
         {mockData.navLinks.map((link, index) => (
           <li key={index}>
             <a 
-              href={link.name === 'Arena' ? '/arena' : link.name === 'Leaderboard' ? '/leaderboard' : link.name === 'Calendar' ? '/calendar' : link.name === 'Scorecard' ? '/scorecard' : '#'} 
-              className={`sidebar-item ${path === '/' + link.name.toLowerCase() ? 'active' : ''}`} 
+              href={link.name === 'Arena' ? '/arena' : link.name === 'Leaderboard' ? '/leaderboard' : link.name === 'Calendar' ? '/calendar' : link.name === 'My Timeline' ? '/timeline' : '#'} 
+              className={`sidebar-item ${path === (link.name === 'My Timeline' ? '/timeline' : '/' + link.name.toLowerCase()) ? 'active' : ''}`} 
               onClick={(e) => {
-                if (link.name !== 'Arena' && link.name !== 'Leaderboard' && link.name !== 'Calendar' && link.name !== 'Scorecard') {
+                if (link.name !== 'Arena' && link.name !== 'Leaderboard' && link.name !== 'Calendar' && link.name !== 'My Timeline') {
                   e.preventDefault();
                   handleLinkClick(link.name);
                 }

@@ -101,9 +101,9 @@ function Navbar({ variant = 'default' }) {
         )}
       </div>
       <div className="nav-center">
-        <a href="#" className="nav-link active">Explore</a>
+        <a href="/" className={`nav-link ${window.location.pathname === '/' ? 'active' : ''}`}>Explore</a>
         <a href="#" className="nav-link">Today's Question</a>
-        <a href="#" className="nav-link">AI Tryouts</a>
+        <a href="/tryouts" className={`nav-link ${window.location.pathname === '/tryouts' ? 'active' : ''}`}>AI Tryouts</a>
       </div>
       <div className="nav-right">
         <div className="icon-btn">
