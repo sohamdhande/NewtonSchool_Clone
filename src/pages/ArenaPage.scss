@@ -1,5 +1,60 @@
+.ar-page-layout {
+  display: grid;
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+  grid-template-columns: 240px 1fr;
+  grid-template-rows: 64px 1fr;
+  grid-template-areas:
+    "header header"
+    "left   main";
+  background-color: #ffffff;
+  color: #111827;
+}
+
+.ar-page-layout .top-header {
+  grid-area: header;
+  background-color: #ffffff;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.ar-page-layout .left-sidebar {
+  grid-area: left;
+  background-color: #ffffff;
+  border-right: 1px solid #e5e7eb;
+  color: #4b5563;
+
+  .enrollment-title { color: #111827; }
+  .enrollment-badge { background-color: #dcfce7; color: #166534; }
+  .sidebar-home-btn {
+    background-color: transparent;
+    color: #4b5563;
+    &.active { background-color: #eff6ff; color: #2563eb; }
+  }
+  .sidebar-section-title { color: #9ca3af; }
+  .sidebar-item {
+    color: #4b5563;
+    &:hover { background-color: #f3f4f6; }
+    &.active { background-color: #eff6ff; color: #2563eb; }
+  }
+  .sidebar-divider { background-color: #e5e7eb; }
+  .share-concern-btn { background-color: #d1fae5; color: #047857; }
+  .subjects-list { margin-bottom: 8px; }
+}
+
+.ar-page-layout .cohort-dropdown { background-color: #ffffff; border: 1px solid #e5e7eb; color: #111827; }
+.ar-page-layout .header-center { background-color: #fef9c3; color: #111827; }
+.ar-page-layout .xp-pill { background-color: #ffffff; border: 1px solid #e5e7eb; color: #111827; }
+.ar-page-layout .icon-btn { color: #6b7280; }
+.ar-page-layout .avatar { background-color: #4f46e5; color: #fff; }
+
+.ar-main-area {
+  grid-area: main;
+  overflow-y: auto;
+  background-color: #ffffff;
+}
+
 .arena-container {
-  min-height: 100vh;
   background-color: #ffffff;
   font-family: 'Inter', sans-serif;
   color: #111;
