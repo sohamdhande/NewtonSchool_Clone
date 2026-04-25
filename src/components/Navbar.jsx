@@ -27,7 +27,7 @@ function Navbar({ variant = 'default' }) {
                 <a href="/" className="show-all-btn">Show All</a>
               </div>
               <div className="courses-dropdown-list">
-                <div className="courses-dropdown-item" onClick={() => window.location.href = '/dashboard'}>
+                <div className="courses-dropdown-item" onClick={() => window.location.href = '/'}>
                   <div className="courses-dropdown-item-info">
                     <h4>NSTP'25-CS+AIML</h4>
                     <span>Enrolled</span>
@@ -89,7 +89,7 @@ function Navbar({ variant = 'default' }) {
               <a href="/" className="show-all-btn">Show All</a>
             </div>
             <div className="courses-dropdown-list">
-              <div className="courses-dropdown-item" onClick={() => window.location.href = '/dashboard'} style={{ cursor: 'pointer' }}>
+              <div className="courses-dropdown-item" onClick={() => window.location.href = '/'} style={{ cursor: 'pointer' }}>
                 <div className="courses-dropdown-item-info">
                   <h4>NSTP'25-CS+AIML</h4>
                   <span>Enrolled</span>
