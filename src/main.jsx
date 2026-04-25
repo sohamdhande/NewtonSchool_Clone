@@ -7,11 +7,12 @@ import Dashboard from './pages/Dashboard'
 
 import ArenaPage from './pages/ArenaPage'
 import LeaderboardPage from './pages/LeaderboardPage'
+import CalendarPage from './pages/CalendarPage'
 
 const path = window.location.pathname;
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    {path === '/dashboard' ? <Dashboard /> : path === '/arena' ? <ArenaPage /> : path === '/leaderboard' ? <LeaderboardPage /> : <App />}
+    {path === '/dashboard' ? <Dashboard /> : path === '/arena' ? <ArenaPage /> : path === '/leaderboard' ? <LeaderboardPage /> : path === '/calendar' ? <CalendarPage /> : <App />}
   </StrictMode>,
 )
